@@ -35,11 +35,6 @@
 	<link rel="stylesheet" type="text/css" class="skin" href="css/skin/skin-9.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.localizationTool.css">
 	<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,400i,500,500i,700,700i&display=swap" rel="stylesheet">	
-	<style>
-		.contact-form {
-			background-color: #d1d2d3;
-		}
-	</style>
 </head>
 <body id="bg" class="font-poppins">
 <div id="loading-area"><div></div></div>
@@ -52,10 +47,35 @@
 			<a href="javascript:void(0)" class="closebtn bg-primary">×</a>
             <div class="about-section">
                 <div class="contact-box">
-					<div class="contact-form p-0">
-						<video src="media/video1.mp4"
-						type="video/mp4" muted class="vid img-fluid rounded d-block">
-						</video>
+					<div class="contact-form">
+						<form method="post" class="dzForm dezPlaceAni" action="script/contact.php">
+							<h6 class="title">Contact Us</h6>
+							<div class="dzFormMsg"></div>
+							<input type="hidden" value="Contact" name="dzToDo" >
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Full Name</label>
+										<input name="dzName" type="text" required class="form-control ">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<label>Your Email Address</label>
+										<input name="dzEmail" type="email" class="form-control" required >
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Your Message</label>
+										<textarea name="dzMessage" rows="4" class="form-control" required ></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<button name="submit" type="submit" value="Submit" class="site-button gradient shadow button-lg black">Send Message</button>
+								</div>
+							</div>
+						</form>
 						<div class="map-box">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3048361176693!2d106.69736551379985!3d10.787948392313666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f355c201871%3A0x3a44c73fb6f59f97!2zMjdCIE5ndXnhu4VuIMSQw6xuaCBDaGnhu4N1LCDEkGEgS2FvLCBRdeG6rW4gMSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaWV0bmFt!5e0!3m2!1sfr!2s!4v1658744545485!5m2!1sfr!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						</div>
@@ -71,7 +91,7 @@
 						<div class="col">
 							<div>
 								<h5 class="title">Email</h5>
-								<a href="#">Thinh.nguyen@spiral.com.vn</a>
+								<a href="#">nptthinhshop@gmail.com</a>
 							</div>
 						</div>
 					</div>
@@ -167,7 +187,7 @@
 					<h2 class="dez-title ml2 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.5s"><span>We are launching soon please </span><br/><span>reload after minutes</span></h2>
 					<div class="dez-coming-btn wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="2.2s">
 						<a href="javascript:void(0);"  class="site-button openbtn button-lg m-r10">Get In Touch</a>
-						<a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" class="site-button button-lg outline white">Subscribe Now</a>
+						<a href="./mavoucher.html"  class="site-button button-lg outline white">Voucher now</a>
 					</div>
 				</div>
 				<div class="text-right bottom-right">
@@ -180,31 +200,7 @@
 				</div>
             </div>
         </div>
-        <!-- Coming Soon Contant -->
-		<div class="modal fade subscribe-box" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<form action="script/mailchamp.php" class="dzSubscribe modal-content" method="post">
-					<div class="modal-header">
-						<img src="images/bell9.png" alt=""/>
-						<h5 class="modal-title" id="exampleModalLabel">Subscribe Newsletter</h5>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt labore dolore.</p>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="form-group">
-							<input name="dzEmail" id="SubscribeInput" required="required" class="form-control radius-no" placeholder="Your Email Address" type="email">
-							<div class="dzSubscribeMsg"></div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="site-button gradient button-lg shadow">Subscribe Now</button>
-					</div>
-				</form>
-			</div>
-		</div>
-    <!-- Content END-->
+       
 </div>
 <!-- JavaScript  files ========================================= -->
 <script src="js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
@@ -226,20 +222,6 @@
 <script src="plugins/anime/anime.min.js"></script><!-- CUSTOM FUCTIONS  -->
 <script src="plugins/anime/app.js"></script><!-- CUSTOM FUCTIONS  -->
 <script src='https://www.google.com/recaptcha/api.js'></script> <!-- Google API For Recaptcha  -->
-<script>
-	// Listening to the video element
-	let clip = document.querySelector(".vid")
-
-	/* Adding the event listeners on the video to play/pause the video. */
-	clip.addEventListener("mouseover", function (e) {
-	   clip.play();
-	})
-
-	/* Applying the mouse out event to pause the video */
-	clip.addEventListener("mouseout", function (e) {
-	   clip.pause();
-	})
-</script>
 <div class="site-nav-overlay js-nav" style="opacity: 0;"></div>
 </body>
 </html>
